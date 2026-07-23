@@ -88,9 +88,9 @@ app.delete("/posts/:id",(req,res)=>{
     .status(404)
     .json({error:`posts with id : ${id} not found`});
 }})
-app.get("/", (req, res) => {
-  res.send("Blog API is running");
-});
+// app.get("/", (req, res) => {
+//   res.send("Blog API is running");
+// });
 app.listen(port, () => {
   console.log(`API is running at http://localhost:${port}`);
 });
