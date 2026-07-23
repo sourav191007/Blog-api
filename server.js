@@ -16,10 +16,17 @@ app.get("/", async (req, res) => {
     const response = await axios.get(`${API_URL}/posts`);
     console.log(response);
     res.render("index.ejs", { posts: response.data });
-  } catch (error) {
-  console.log(error.message);
-  console.log(error.response?.data);
-  res.status(500).json({ message: error.message });
+  }catch (error) {
+  console.log("ERROR:", error);
+  console.log("MESSAGE:", error.message);
+  console.log("CODE:", error.code);
+  console.log("RESPONSE:", error.response?.data);
+
+  res.status(500).json({
+    message: error.message,
+    code: error.code,
+    response: error.response?.data,
+  });
 }
 });
 
